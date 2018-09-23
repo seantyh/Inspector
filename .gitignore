@@ -3,3 +3,5 @@
 *.tmp
 data/
 __pycache__/
+src/
+scripts/

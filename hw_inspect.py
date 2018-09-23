@@ -28,7 +28,9 @@ def inspect_homework(hwpath, ref_file=None):
     hw_inspection = OrderedDict()
     id_pat = re.compile(r"_([a-zA-Z][0-9ab]+|es_[0-9]+)_(.*?)_(\d+)")
     hw_serial = {}
-    for hw_file in glob.glob(join(hwpath, "*.py")):           
+    hw_file_list = glob.glob(join(hwpath, "*.py"))
+    hw_file_list.sort()
+    for hw_file in hw_file_list:           
         id_mat = id_pat.search(hw_file)
         if not id_mat:
             logger.warning("invalid id: %s", hw_file)
