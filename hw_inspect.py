@@ -54,9 +54,9 @@ def inspect_homework(hwpath, ref_file=None):
         fin = open(hw_file, "r", encoding="UTF-8")
         codes = fin.read()
         fin.close()
+        cdata = CodeData()
         try:
-            tree = ast.parse(codes)
-            cdata = CodeData()
+            tree = ast.parse(codes)            
             cdata.syntax = "valid"
             cdata.n_char = len(codes)
             cdata.adv_nodes = pyMetrics.get_advance_nodes(tree)
