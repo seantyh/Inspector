@@ -13,6 +13,7 @@ class CodeData:
         self.tree_depth = 0
         self.n_char = 0
         self.vec_manhattan = -1
+        self.tags = []
     
 class CodeDataEncoder(json.JSONEncoder):
     def default(self, obj):
