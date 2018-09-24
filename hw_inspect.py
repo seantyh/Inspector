@@ -72,11 +72,11 @@ def inspect_homework(hwpath, ref_file=None):
                 cdata.vec_manhattan = pyMetrics.manhattan_distance(
                                         cdata.node_vec, ref_vec)
 
-            hw_inspection[student_id] = cdata
         except SyntaxError as ex:
             cdata.syntax = "error"
             logger.error(ex)
             logger.error("Syntax Error in %s", student_id)
+        hw_inspection[student_id] = cdata
 
     return hw_inspection    
         

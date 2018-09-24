@@ -45,6 +45,9 @@ def tag_hw_object(hw_object, hw_stat):
             distinct_imp_modules.add(mod_x)
 
     for cdata in hw_object.values():
+        if cdata.syntax == "error":
+            cdata.tags = []
+            continue
         tags = []
         # tag by nchar percentiles
         nchar_tag = tag_by_percentiles(cdata.n_char, hw_stat["n_char"])
@@ -69,6 +72,7 @@ def tag_hw_object(hw_object, hw_stat):
             tags.append("distinct_call")
         if has_distinct_mod:
             tags.append("distinct_mod")
+
         cdata.tags = tags
     return hw_object
 
