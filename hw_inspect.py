@@ -73,8 +73,9 @@ def inspect_homework(hwpath, ref_file=None):
                                         cdata.node_vec, ref_vec)
 
             hw_inspection[student_id] = cdata
-        except SyntaxError:
+        except SyntaxError as ex:
             cdata.syntax = "error"
+            logger.error(ex)
             logger.error("Syntax Error in %s", student_id)
 
     return hw_inspection    
